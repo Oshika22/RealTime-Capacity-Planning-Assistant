@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  sre-agent:
+    build:
+      context: ../../        # Goes up two levels to the project root
+      dockerfile: infrastructure/docker/Dockerfile
+    container_name: sre_autonomous_agent
+    env_file:
+      - ../../.env           # Loads your API keys from the root .env
+    volumes:
+      - ../../src:/app/src   # Hot-reload: changes in code reflect inside container
+    restart: unless-stopped

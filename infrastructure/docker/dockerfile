@@ -1,0 +1,29 @@
+# Use a lightweight Python base
+FROM python:3.11-slim
+
+# Set environment variables to prevent Python from writing .pyc and buffering stdout
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory
+WORKDIR /app
+
+# Install system dependencies (needed for some python packages)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/sets/*
+
+# Copy requirements from the project root
+# (When building, we will set the context to the project root)
+COPY requirements.txt .
+
+# Install dependencies
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Copy the entire project
+COPY . .
+
+# Run the application as a module
+CMD ["python", "-m", "src.main"]
+
