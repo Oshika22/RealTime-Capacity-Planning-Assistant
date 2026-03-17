@@ -1,0 +1,47 @@
+# --- Environment Variables (CRITICAL) ---
+.env
+.env.*
+# Yeh line src/ ke andar wali .env ko bhi block karegi
+**/.env
+
+# --- Virtual Environments ---
+.venv/
+env/
+venv/
+ENV/
+lib/
+bin/
+include/
+
+# --- Python Build & Cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ipynb_checkpoints/
+# Temporary code runner files
+tempCodeRunnerFile.py
+
+# --- IDEs & OS ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# --- Project Specific Data ---
+*.log
+data/raw/
+results/
+trial.json
+# Don't track local databases if any
+*.db
+*.sqlite3
+
+# --- Docker ---
+# Ignore local docker data but KEEP the Dockerfile
+.docker/
