@@ -69,7 +69,7 @@ Standard cloud autoscalers are reactive—they only scale after traffic hits. Th
    python -m src.main
 
 ### 📁Project Structure
-
+```bash
 devops-project-sre-agent/
 ├── src/                        # Source code
 │   ├── main.py                 # Entry point
@@ -85,7 +85,7 @@ devops-project-sre-agent/
 ├── .github/workflows/          # CI/CD Pipeline
 │   └── ci-cd.yml
 └── requirements.txt            # Dependency management
-
+```
 ### ⚙️Configuration
 **Environment Variables**
 Create a .env file in the root directory:
